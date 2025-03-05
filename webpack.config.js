@@ -41,10 +41,6 @@ module.exports = {
       if (!devServer) {
         throw new Error('webpack-dev-server is not defined');
       }
-      devServer.app.get('/slotify/connector/connector.js', (req, res, next) => {
-        res.setHeader('Content-Type', 'application/javascript');
-        next();
-      });
       return middlewares;
     },
   },
