@@ -13,10 +13,14 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpg|gif|skel|atlas|json|otf|ttf|mp3)$/i,
+        test: /\.(png|PNG|jpg|gif|skel|atlas|json|otf|ttf|mp3|css|html)$/i,
         type: 'asset/resource',
         generator: {
+          
           filename: (pathData) => {
+            if (pathData.filename.endsWith('index.html')) {
+              return 'index.html'; // Place index.html in dist/
+            }
             const assetPath = pathData.filename.split('src/assets/')[1];
             return `assets/${assetPath}`;
           },
