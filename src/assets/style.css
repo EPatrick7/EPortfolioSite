@@ -184,6 +184,18 @@ div.content .bold {
     -webkit-text-size-adjust: 100%;
   }
 }
+.gray-bar {
+  position: fixed;
+  top: 0;
+  left: -15%;
+  width: 130%;
+  opacity: 0.2;
+  height: 100px;
+  background-color: #808080; 
+  border: 2px solid #4e74a248; 
+  border-radius: 10px; 
+  z-index: -1; 
+}
 
 div.content .text .bold {
   margin-left: 0%;
