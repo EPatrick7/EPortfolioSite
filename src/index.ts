@@ -5,28 +5,35 @@ export const fg_color="#ab68fd"
 const required_paths=[
 require("./index.html"),
 require("./assets/articles/astronomous.html"),
-require("./assets/articles/astronomousgw.html"),
 require("./assets/articles/chessbb.html"),
 require("./assets/articles/convergence.html"),
-require("./assets/articles/hhangover.html"),
-require("./assets/articles/logico.html"),
 require("./assets/articles/minecraft.html"),
-require("./assets/articles/photonics.html"),
 require("./assets/articles/pipeline.html"),
-require("./assets/articles/pipeline3.html"),
 require("./assets/articles/ppanzers.html"),
 require("./assets/articles/profmaren.html"),
 require("./assets/articles/resume.html"),
-require("./assets/articles/simulators.html"),
 require("./assets/articles/trajectory.html"),
 require("./assets/style.css"),
 require("./assets/fonts/arialroundedmtbold.ttf"),
 
-require("./assets/images/AStar.png"), require("./assets/images/Astronomous1.PNG"), require("./assets/images/Astronomous2.PNG"), require("./assets/images/Astronomous3.PNG"), require("./assets/images/AstronomousGW1.PNG"), require("./assets/images/AstronomousGW2.PNG"), require("./assets/images/AstronomousGW3.PNG"), require("./assets/images/AtomSim.PNG"), require("./assets/images/CBB1.png"), require("./assets/images/CBB2.png"), require("./assets/images/Convergence1.PNG"), require("./assets/images/Convergence2.PNG"), require("./assets/images/dirt.png"), require("./assets/images/Eric.png"), require("./assets/images/EvoSim.PNG"), require("./assets/images/GravSim.PNG"), require("./assets/images/HH1.png"), require("./assets/images/Logico.PNG"), require("./assets/images/Logico2.png"), require("./assets/images/moon_dis.jpg"), require("./assets/images/moon.jpg"), require("./assets/images/PCE1.png"), require("./assets/images/PCE2.png"), require("./assets/images/PCE3.png"), require("./assets/images/Photonics1.png"), require("./assets/images/Photonics2.png"), require("./assets/images/Photonics3.png"), require("./assets/images/PiggyIcon.png"), require("./assets/images/Pipeline3_1.PNG"), require("./assets/images/Pipeline3_2.PNG"), require("./assets/images/Pipeline3_3.PNG"), require("./assets/images/PMaren1.PNG"), require("./assets/images/PMaren2.PNG"), require("./assets/images/Trajectory1.png"), require("./assets/images/Trajectory2.png"),
+require("./assets/images/Astronomous1.PNG"), require("./assets/images/Astronomous2.PNG"), require("./assets/images/Astronomous3.PNG"),  require("./assets/images/CBB1.png"), require("./assets/images/CBB2.png"), require("./assets/images/Convergence1.PNG"), require("./assets/images/Convergence2.PNG"),  require("./assets/images/Eric.png"),   require("./assets/images/PCE1.png"), require("./assets/images/PCE2.png"), require("./assets/images/PCE3.png"),  require("./assets/images/PiggyIcon.png"), require("./assets/images/PMaren1.PNG"), require("./assets/images/PMaren2.PNG"), require("./assets/images/Trajectory1.png"), require("./assets/images/Trajectory2.png"),
 require("./assets/images/PiggyIcon.png"),
 ];
 
+function resizeIframes(): void {
 
+    const iframes = document.querySelectorAll("iframe.article");
+
+    for (let i = 0; i < iframes.length; i++) {
+        const iframe = iframes[i] as HTMLIFrameElement;
+        
+      
+        if (iframe.contentWindow && iframe.contentWindow.document.body) {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight+ "px";
+        };
+    }
+}
+  
 
 document.addEventListener("DOMContentLoaded", () => {
     const fadeElements = document.querySelectorAll(".fade-in");
@@ -93,6 +100,7 @@ function currentScrollPercentage()
 
 function rescale() 
 {
+    resizeIframes();
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);

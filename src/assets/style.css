@@ -85,11 +85,15 @@ body {
 
 .container div.fade-in {
   opacity: 0;
-  transform: translateX(100px);
+  transform: translateY(5%);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
   border: 5px solid #000000;
   background-color: #4e74a248;
-  width: 75vw;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 5px;
   @media screen and (max-width: 750px) {
     width:100%;
@@ -98,140 +102,34 @@ body {
 
 .container div.fade-in.show {
   opacity: 1;
-  transform: translateX(0px);
-  border: 5px solid #000000;
-  background-color: #4e74a248;
-  width: 75vw;
-  border-radius: 5px;
-  @media screen and (max-width: 750px) {
-    width:100%;
-  }
+  transform: translateY(0);
 }
+
 .content .video {
   width: 50%;
-  height: 50%;
+  aspect-ratio: 16 / 9; /* Maintains a 16:9 ratio */
   overflow: hidden;
   border: 5px solid #4e74a248;
   border-radius: 5px;
-  
-
-  @media screen and (max-width: 750px) {
-    border:  none;
-    width:100%;
-  }
-
   background-color: transparent;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center; 
-  margin: 0 auto; 
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .content .video iframe {
   width: 100%;
   height: 100%;
   border: none;
-  margin: 0;
-  padding: 0;
 }
 
 
 
-.content .mcvideo {
-  width: 50%;
-  height: 30%;
-  overflow: hidden;
-  border: 5px solid #4e74a248;
-  border-radius: 5px;
-  
-
-  @media screen and (max-width: 750px) {
-    border:  none;
-    width:100%;
-  }
-
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
-  margin: 0 auto; 
-}
-
-.content .mcvideo iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-.content .game {
-  width: 125%;
-  height: 125%;
-  transform: scale(0.5) translateX(-20%) translateY(-50%);
-  overflow: hidden;
-  border: 5px solid #4e74a248;
-  border-radius: 5px;
-  margin-bottom: -35%;
-  @media screen and (max-width: 750px) {
-    border:  none;
-    width:200%;
-  height: 125%;
-  margin-bottom: -50%;
-  transform: scale(0.5) translateX(-50%) translateY(-50%);
-  }
-
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
-}
-
-.content .game iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-.content .document {
-  width: 75%;
-  height: 50%;
-  overflow: hidden;
-  border: 5px solid #4e74a248;
-  border-radius: 5px;
-  
-
-  @media screen and (max-width: 750px) {
-    border:  none;
-    width:100%;
-  }
-
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: right; 
-  margin: 0 auto; 
-}
-.content .document iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  
-  margin: 0;
-  padding: 0;
-}
-
-
-  a {
-    color: #008cff;
+a {
+  color: #008cff;
     
-        }
+}
 
 div.content .text {
 
@@ -240,6 +138,7 @@ div.content .text {
   text-shadow: 0.3px 0.3px 0.3px #000000;
   color: #ffffff;
   margin-left: 5%;
+  
 
 
   -webkit-text-stroke: 0.05px #000000;
@@ -277,10 +176,11 @@ div.content .title {
   font-family: 'ArialRounded';
   font-size: 45px;
   font-weight: bold;
-  color: #08ec009d;
+  color: #ffb300;
+  
   text-align: center;
   -webkit-text-stroke: 1px #000000;
-  margin-bottom: -15px;
+  margin-bottom: 0px;
 }
 
 div.content p.centered {
