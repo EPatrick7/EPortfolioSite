@@ -138,14 +138,44 @@ const material = new MeshStandardMaterial( { color: fg_color } );
 //scene.add( cube );
 //register_object(cube,1,1);
 
+
+
+const skyboxTexture = new CubeTextureLoader().load([
+    
+    imports.skybox.bk,
+    imports.skybox.ft,
+    imports.skybox.dn, 
+    imports.skybox.up,  
+    imports.skybox.lf,
+    imports.skybox.rt, 
+]);
+scene.backgroundIntensity=10;
+scene.background = skyboxTexture;
+const skyboxMesh = new Mesh(new SphereGeometry(1500, 64, 64), new MeshBasicMaterial({
+
+    envMap:skyboxTexture, 
+    side: DoubleSide,
+    transparent:true,
+    opacity:0.5,
+}));
+skyboxMesh.material.color.multiplyScalar(10);
+scene.add(skyboxMesh);
+
+
+
 camera.position.z = 5;
 
 const renderer = new WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.domElement.style.position="fixed";
 renderer.domElement.style.zIndex="-1";
-document.body.append( renderer.domElement );
-document.body.scrollTo(0,0);
+
+setTimeout(()=>{
+
+    document.body.append( renderer.domElement );
+    document.body.scrollTo(0,0);
+
+},0.1)
 //document.body.style.height = "300vh";
 function currentScrollAmount()
 {
@@ -170,27 +200,6 @@ window.addEventListener("resize", () => {
 	rescale();
 });
 
-
-
-const skyboxTexture = new CubeTextureLoader().load([
-    
-    imports.skybox.bk,
-    imports.skybox.ft,
-    imports.skybox.up, 
-    imports.skybox.dn,  
-    imports.skybox.lf,
-    imports.skybox.rt, 
-]);
-scene.backgroundIntensity=10;
-scene.background = skyboxTexture;
-const skyboxMesh = new Mesh(new SphereGeometry(500, 64, 64), new MeshBasicMaterial({
-    map: skyboxTexture,
-    envMap:skyboxTexture, 
-    side: DoubleSide,
-    transparent:true,
-    opacity:0.75,
-}));
-scene.add(skyboxMesh);
 
 resume_build();
 const clock = new Clock();

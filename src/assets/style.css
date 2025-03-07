@@ -93,8 +93,10 @@ body {
   display: flex;
   /*
   border: 5px solid #000000;
-  background-color: #4e74a248;
-*/
+  */
+  background-color: #4e74a20c;
+
+  border: 5px solid #0000001e;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
@@ -135,6 +137,7 @@ body {
 
 a {
   color: #008cff;
+  text-decoration-color: #008cff;
     
 }
 
@@ -144,6 +147,7 @@ b {
 
   cursor: pointer;
   text-decoration: underline;
+  text-decoration-color: #008cff;
     
 }
 
