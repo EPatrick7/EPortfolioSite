@@ -114,7 +114,6 @@ window.addEventListener("resize", () => {
 
 function animate() {
 	rescale();
-    console.log(currentScrollAmount());
 	cube.position.y=currentScrollAmount()/100;
 
 	cube.rotation.x += 0.001;

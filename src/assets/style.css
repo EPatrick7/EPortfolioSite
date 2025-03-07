@@ -5,8 +5,8 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw !important;
+  height: 100vh !important;
 }
 
 .main {
@@ -87,11 +87,14 @@ body {
   opacity: 0;
   transform: translateY(5%);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
-  border: 5px solid #000000;
-  background-color: #4e74a248;
+
   height: auto;
   width: 100%;
   display: flex;
+  /*
+  border: 5px solid #000000;
+  background-color: #4e74a248;
+*/
   justify-content: center;
   align-items: center;
   border-radius: 5px;
@@ -116,6 +119,10 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  
+  @media screen and (max-width: 750px) {
+    width:100%;
+  }
 }
 
 .content .video iframe {
@@ -133,7 +140,27 @@ a {
 
 div.content .text {
 
-  font-size: calc(0.35rem + 1vw);
+  font-size: larger;
+  width: 90%;
+  text-shadow: 0.3px 0.3px 0.3px #000000;
+  color: #ffffff;
+  margin-left: 5%;
+
+  
+
+
+  -webkit-text-stroke: 0.05px #000000;
+  @media screen and (max-width: 750px) {
+  -webkit-text-stroke:0px transparent;
+  text-shadow:none;
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+div.content .bold {
+
+  font-size: x-large;
+  font-weight: bold;
   width: 90%;
   text-shadow: 0.3px 0.3px 0.3px #000000;
   color: #ffffff;
@@ -149,25 +176,6 @@ div.content .text {
   }
 }
 
-
-div.content .bold {
-  margin:0;
-  font-size: min(25px, 3.2vw);
-  text-shadow: 1px 1px 1px #000000;
-
-  @media screen and (max-width: 600px) {
-
-  font-size: min(22px, 3.2vw);
-  }
-  font-weight: bold;
-
-    @media screen and (max-width: 750px) {
-  -webkit-text-stroke:0px transparent;
-  text-shadow:none;
-
-    -webkit-text-size-adjust: 100%;
-  }
-}
 div.content .normal {
   margin:0;
 }
@@ -197,4 +205,21 @@ div.content p.centered {
 
     -webkit-text-size-adjust: 100%;
   }
+}
+
+
+.image {
+  display: flex;
+  justify-content: space-between; 
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+  
+}
+
+.image img {
+  width: 30%; 
+  height: auto;
+  border: 2px solid #4e74a248; 
+  border-radius: 5px; 
 }
