@@ -138,6 +138,15 @@ a {
     
 }
 
+b {
+  color: #008cff;
+  font-size: x-large;
+
+  cursor: pointer;
+  text-decoration: underline;
+    
+}
+
 div.content .text {
 
   font-size: larger;
@@ -174,6 +183,12 @@ div.content .bold {
   text-shadow:none;
     -webkit-text-size-adjust: 100%;
   }
+}
+
+div.content .text .bold {
+  margin-left: 0%;
+  margin-bottom: 0%;
+  font-size: xx-large;
 }
 
 div.content .normal {
