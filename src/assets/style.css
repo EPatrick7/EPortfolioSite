@@ -223,3 +223,17 @@ div.content p.centered {
   border: 2px solid #4e74a248; 
   border-radius: 5px; 
 }
+
+@media (max-width: 768px) {
+  .image {
+    flex-direction: column; 
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .image img {
+    width: 80%; 
+    margin-bottom: 10px; 
+  }
+}
