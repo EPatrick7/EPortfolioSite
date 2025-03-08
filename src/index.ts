@@ -1,8 +1,9 @@
 import { BackSide, BoxGeometry, Clock, Color, CubeTextureLoader, DirectionalLight, DoubleSide, Mesh, MeshBasicMaterial, MeshStandardMaterial, PerspectiveCamera, PointLight, RingGeometry, Scene, SphereGeometry, TextureLoader, TorusGeometry, Vector3, WebGLRenderer } from "three";
 import { resume_build } from "./scripts/resume";
+import { minecraft_build } from "./scripts/minecraft";
 export const bg_color="#121212"
 export const fg_color="#ab68fd"
-
+export const isMobile = window.innerWidth < 600;
 export const imports={
     articles:[
 require("./index.html"),
@@ -62,7 +63,16 @@ skybox:
     rt: require("./assets/images/skybox/space_rt.png"),
     up: require("./assets/images/skybox/space_up.png"),
 
-}
+},
+
+crab:{
+    mtl:require("./assets/models/crab_1.mtl"),
+    mtl2:require("./assets/models/crab_2.mtl"),
+    obj:require("./assets/models/crab_1.obj"),
+    obj2:require("./assets/models/crab_2.obj"),
+    tex:require("./assets/models/crab.png"),
+},
+
 
 };
 
@@ -165,7 +175,7 @@ scene.add(skyboxMesh);
 
 camera.position.z = 5;
 
-const renderer = new WebGLRenderer();
+export const renderer = new WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.domElement.style.position="fixed";
 renderer.domElement.style.zIndex="-1";
@@ -200,14 +210,16 @@ window.addEventListener("resize", () => {
 	rescale();
 });
 
-
+export let GlobalTime=0;
 resume_build();
+minecraft_build();
 const clock = new Clock();
 function animate() {
     const delta= clock.getDelta();
+    GlobalTime+=delta;
 	rescale();
 
-    camera.position.y=-currentScrollAmount()/100;
+    camera.position.y=-currentScrollPercentage()*100;
     scrolling_elements.forEach((obj:any)=>{
       //  obj.position.y=obj.y +currentScrollAmount()/100
 

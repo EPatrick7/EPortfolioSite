@@ -13,7 +13,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|PNG|jpg|gif|skel|atlas|json|otf|ttf|mp3|css|html)$/i,
+        test: /\.(png|PNG|jpg|gif|skel|atlas|json|otf|ttf|mp3|css|html|mtl|obj)$/i,
         type: 'asset/resource',
         generator: {
           
