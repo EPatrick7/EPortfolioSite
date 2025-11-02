@@ -16,6 +16,7 @@ import "./style.css";
 export const imports = {
   articles: [
     require("./index.html"),
+    require("./assets/articles/scraprooms.html"),
     require("./assets/articles/astronomous.html"),
     require("./assets/articles/chessbb.html"),
     require("./assets/articles/convergence.html"),
@@ -52,6 +53,8 @@ export const imports = {
     require("./assets/images/CBB2.png"),
     require("./assets/images/Convergence1.PNG"),
     require("./assets/images/Convergence2.PNG"),
+    require("./assets/images/Scraprooms1.PNG"),
+    require("./assets/images/Scraprooms2.PNG"),
     require("./assets/images/Eric.png"),
     require("./assets/images/PCE1.png"),
     require("./assets/images/PCE2.png"),
@@ -137,9 +140,9 @@ function resizeIframes(): void {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const fadeElements = document.querySelectorAll(".fade-in");
   resizeIframes();
   const handleScroll = () => {
+    const fadeElements = document.querySelectorAll(".fade-in");
     fadeElements.forEach((el) => {
       const element = el as HTMLElement;
       const rect = element.getBoundingClientRect();

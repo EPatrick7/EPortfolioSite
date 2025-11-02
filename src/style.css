@@ -1,3 +1,11 @@
+
+@font-face {
+  font-family: 'ArialRounded';
+  src: url('./assets/fonts/arialroundedmtbold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -69,7 +77,7 @@ background-image: url('./assets/header_bg.png');
 }
 
 .name {
-  font-family: 'Lato', sans-serif;
+  font-family: 'ArialRounded';
   font-weight: 700;
   font-size: 3rem;
   margin: 0 0 0.5rem 0;

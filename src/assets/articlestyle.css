@@ -24,10 +24,16 @@
   font-weight: bold;
   color: rgb(255, 145, 0);
   -webkit-text-stroke: 1px #000000;
-  
+    @media screen and (max-width: 750px) {
+  -webkit-text-stroke:0px transparent;
+  text-shadow:none;
+
+    -webkit-text-size-adjust: 100%;
+  }
 }
 
 .sub-text {
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-style: italic;
   -webkit-text-stroke: 0.2px #000000;
@@ -83,6 +89,7 @@ b {
 
 div.content .text {
 
+  font-family: 'Roboto', sans-serif;
   font-size: larger;
   width: 90%;
   text-shadow: 0.3px 0.3px 0.3px #000000;
@@ -102,6 +109,7 @@ div.content .text {
 
 div.content .bold {
 
+  font-family: 'Lato', sans-serif;
   font-size: x-large;
   font-weight: bold;
   width: 90%;
@@ -118,18 +126,7 @@ div.content .bold {
     -webkit-text-size-adjust: 100%;
   }
 }
-.gray-bar {
-  position: fixed;
-  top: 0;
-  left: -15%;
-  width: 130%;
-  opacity: 0.2;
-  height: 100px;
-  background-color: #808080; 
-  border: 2px solid #4e74a248; 
-  border-radius: 10px; 
-  z-index: -1; 
-}
+
 
 div.content .text .bold {
   margin-left: 0%;
@@ -146,13 +143,41 @@ div.content .title {
   font-size: 45px;
   font-weight: bold;
   color: #ffb300;
-  
-  text-align: center;
   -webkit-text-stroke: 1px #000000;
   margin-bottom: 0px;
+  text-align: center; /* optional — will center the flex container overall */
+  
+  display: flex;
+  justify-content: center; /* centers both text + icons together */
+  align-items: center;
+  gap: 10px; /* space between title and icons */
+
+    @media screen and (max-width: 750px) {
+    -webkit-text-size-adjust: 100%;
+  }
 }
 
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s;
+  background-color: rgba(171, 171, 171, 0.2);
+  border-radius: 8px;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.1);
+}
+
+
 div.content p.centered {
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   margin-top: 0;
   margin-bottom: 0;
