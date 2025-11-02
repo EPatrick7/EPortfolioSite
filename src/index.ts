@@ -11,6 +11,20 @@ import {
 import "./style.css";
 
 export const imports = {
+  articles: [
+    require("./index.html"),
+    require("./assets/articles/astronomous.html"),
+    require("./assets/articles/chessbb.html"),
+    require("./assets/articles/convergence.html"),
+    require("./assets/articles/minecraft.html"),
+    require("./assets/articles/pipeline.html"),
+    require("./assets/articles/ppanzers.html"),
+    require("./assets/articles/profmaren.html"),
+    require("./assets/articles/resume.html"),
+    require("./assets/articles/trajectory.html"),
+    require("./assets/articlestyle.css"),
+    require("./assets/fonts/arialroundedmtbold.ttf"),
+  ],
   images: [
     require("./assets/icon.png"),
     require("./assets/profile_picture.png"),
@@ -18,6 +32,23 @@ export const imports = {
     require("./assets/github.png"),
     require("./assets/itch-io.png"),
     require("./assets/linkedin.png"),
+  ],
+  article_images: [
+    require("./assets/images/Astronomous1.PNG"),
+    require("./assets/images/Astronomous2.PNG"),
+    require("./assets/images/Astronomous3.PNG"),
+    require("./assets/images/CBB1.png"),
+    require("./assets/images/CBB2.png"),
+    require("./assets/images/Convergence1.PNG"),
+    require("./assets/images/Convergence2.PNG"),
+    require("./assets/images/Eric.png"),
+    require("./assets/images/PCE1.png"),
+    require("./assets/images/PCE2.png"),
+    require("./assets/images/PCE3.png"),
+    require("./assets/images/PMaren1.PNG"),
+    require("./assets/images/PMaren2.PNG"),
+    require("./assets/images/Trajectory1.png"),
+    require("./assets/images/Trajectory2.png"),
   ],
 };
 
