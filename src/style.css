@@ -1,30 +1,19 @@
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-}
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw !important;
-  height: 100vh !important;
-}
-
-body {
-  margin: 0; 
-  overflow: hidden;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .container {
   z-index: 10;
+  overflow-x: hidden;
 }
 
 .container > .gap {
   border: 0;
-  min-height: 6vh;
+  min-height: 12.5vh;
   background-color: transparent;
+  height: 12.5vh;
 }
 
 
@@ -32,10 +21,11 @@ body {
   opacity: 0;
   transform: translateX(5%);
   transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
-  height: 120vh;
+
 
   justify-content: center;
-  align-items: center;
+  align-items: center;  
+  overflow: visible;
 }
 .container div.fade-in.show {
   opacity: 1;
@@ -49,7 +39,6 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   padding: 2rem;
-  overflow-y: hidden;
   color: white;
 
 
