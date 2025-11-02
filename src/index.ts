@@ -159,7 +159,7 @@ const skyboxTexture = new CubeTextureLoader().load([
     imports.skybox.lf,
     imports.skybox.rt, 
 ]);
-scene.backgroundIntensity=10;
+scene.backgroundIntensity=2;
 scene.background = skyboxTexture;
 const skyboxMesh = new Mesh(new SphereGeometry(1500, 64, 64), new MeshBasicMaterial({
 
@@ -168,7 +168,7 @@ const skyboxMesh = new Mesh(new SphereGeometry(1500, 64, 64), new MeshBasicMater
     transparent:true,
     opacity:0.5,
 }));
-skyboxMesh.material.color.multiplyScalar(10);
+skyboxMesh.material.color.multiplyScalar(3);
 scene.add(skyboxMesh);
 
 
@@ -176,9 +176,11 @@ scene.add(skyboxMesh);
 camera.position.z = 5;
 
 export const renderer = new WebGLRenderer();
+
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.domElement.style.position="fixed";
 renderer.domElement.style.zIndex="-1";
+renderer.setClearColor(0x000000, 0);
 
 setTimeout(()=>{
 
@@ -200,9 +202,9 @@ function currentScrollPercentage()
 function rescale() 
 {
     resizeIframes();
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = window.outerWidth / window.outerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.outerWidth, window.outerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 };
 
