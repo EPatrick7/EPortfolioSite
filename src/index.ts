@@ -13,6 +13,7 @@ import {
   WebGLRenderer,
 } from "three";
 import "./style.css";
+export const isMobile = window.innerWidth < 1000;
 export const imports = {
   articles: [
     require("./index.html"),
@@ -148,8 +149,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const rect = element.getBoundingClientRect();
       const windowHeight = window.outerHeight;
       // Adjust this threshold(e.g., 0.3 = 30% visibility)
-      const visibilityThreshold = 0.3;
-      if (rect.top < windowHeight * (1 - visibilityThreshold)) {
+      const visibilityThreshold = isMobile ? 0.1 : 0.3;
+      const offset = isMobile ? -400 : 0;
+      if (rect.top + offset < windowHeight * (1 - visibilityThreshold)) {
         element.classList.add("show");
       } else {
         element.classList.remove("show");
