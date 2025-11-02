@@ -69,6 +69,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 //"#1E1E1E"
 renderer.setClearColor("#ffffff", 1); // subtle purple-gray tone
 renderer.domElement.id = "bg";
+renderer.domElement.style.overflow = "hidden";
 renderer.domElement.style.position = "fixed";
 renderer.domElement.style.top = "0";
 renderer.domElement.style.left = "0";
@@ -93,13 +94,52 @@ const mat = new MeshStandardMaterial({
 });
 const mesh = new Mesh(geo, mat);
 scene.add(mesh);
+function resizeIframes(): void {
+  const iframes = document.querySelectorAll("iframe.article");
 
+  for (let i = 0; i < iframes.length; i++) {
+    const iframe = iframes[i] as HTMLIFrameElement;
+
+    if (iframe.contentWindow && iframe.contentWindow.document.body) {
+      iframe.style.height =
+        iframe.contentWindow.document.body.scrollHeight + "px";
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeElements = document.querySelectorAll(".fade-in");
+
+  const handleScroll = () => {
+    fadeElements.forEach((el) => {
+      const element = el as HTMLElement;
+      const rect = element.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Adjust this threshold (e.g., 0.3 = 30% visibility)
+      const visibilityThreshold = 0.3;
+
+      if (rect.top < windowHeight * (1 - visibilityThreshold)) {
+        element.classList.add("show");
+      } else {
+        element.classList.remove("show"); // Optional: remove on scroll up
+      }
+    });
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // Run on page load to check initial visibility
+});
 window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
+  resizeIframes();
 });
-
+window.onload = function () {
+  resizeIframes();
+};
+resizeIframes();
 let scrollY = 0;
 window.addEventListener("scroll", () => {
   scrollY = window.scrollY;

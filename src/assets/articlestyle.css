@@ -1,49 +1,11 @@
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-}
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw !important;
-  height: 100vh !important;
-}
 
-.main {
-  position: absolute;
-  width: 100%;
-  overflow-x: hidden;
-}
-body {
-  margin: 0; /* Remove default body margin */
-  overflow-x: hidden;
-}
 @font-face {
   font-family: 'ArialRounded';
   src: url('./fonts/arialroundedmtbold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-.container {
-  font-family: 'Quicksand', sans-serif;
 
-
-  
-  font-weight: normal;
-  font-size: 20px;
-  width: 95%;
-  height: 100%;
-  min-width:100vw;
-  z-index: 10;
-  display: flex;
-  flex-direction: column; /* Align items vertically */
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  margin: 0 auto; /* Center the container horizontally */
-}
 
 .header {
   opacity: 1;
@@ -77,41 +39,6 @@ body {
   }
 }
 
-
-.container > .gap {
-  border: 0;
-  min-height: 12.5vh;
-  background-color: transparent;
-  height: 12.5vh;
-}
-
-
-.container div.fade-in {
-  opacity: 0;
-  transform: translateY(5%);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
-
-  height: auto;
-  width: 100%;
-  display: flex;
-  /*
-  border: 5px solid #000000;
-  */
-  background-color: #4e74a20c;
-
-  border: 5px solid #0000001e;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  @media screen and (max-width: 750px) {
-    width:100%;
-  }
-}
-
-.container div.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .content .video {
   width: 50%;

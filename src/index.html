@@ -7,7 +7,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
-
+<script>
+  function scrollToProject(projectId) {
+      let element = document.getElementById(projectId);
+      if (element) {
+          window.scrollTo({
+              top: element.offsetTop,
+              behavior: "smooth"
+          });
+      }
+  }
+  </script>
 <section class="intro">
   <div class="intro-content">
     <!-- LEFT SIDE -->
@@ -40,8 +50,7 @@
 </section>
 
 
-<section class = "body">
-<div class="gap"></div>
+<div class = "container">
       <div class="gap"></div>
               <div class="fade-in" id="profmaren">
 
