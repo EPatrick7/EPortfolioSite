@@ -105,6 +105,17 @@ window.addEventListener("scroll", () => {
   scrollY = window.scrollY;
 });
 
+function currentScrollAmount() {
+  return document.documentElement.scrollTop + document.body.scrollTop;
+}
+function currentScrollPercentage() {
+  return (
+    currentScrollAmount() /
+    (document.documentElement.scrollHeight -
+      document.documentElement.clientHeight)
+  );
+}
+
 function animate() {
   requestAnimationFrame(animate);
   mesh.rotation.x += 0.002;
@@ -112,6 +123,8 @@ function animate() {
 
   // Optional subtle motion
   mesh.rotation.y += scrollY * 0.00001;
+
+  camera.position.y = -currentScrollPercentage() * 100;
 
   renderer.render(scene, camera);
 }
