@@ -86,7 +86,11 @@ renderer.domElement.style.width = "100%";
 renderer.domElement.style.height = "100%";
 renderer.domElement.style.zIndex = "-1";
 renderer.domElement.style.pointerEvents = "none";
-document.body.prepend(renderer.domElement);
+setTimeout(() => {
+  document.body.append(renderer.domElement);
+  document.body.scrollTo(0, 0);
+}, 0.1);
+
 const light = new PointLight(0xffffff, 1);
 light.position.set(10, 10, 10);
 scene.add(light);
